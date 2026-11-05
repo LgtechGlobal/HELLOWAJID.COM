@@ -14,12 +14,12 @@ export default function Destinations() {
   }, [selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-[#08140c] text-[#f7f4ee] pt-24 pb-20">
+    <div className="min-h-screen bg-[#08140c] text-[#f7f4ee] pt-20 sm:pt-24 pb-16 sm:pb-20">
       
       {/* =========================================
           HERO BANNER
       ========================================= */}
-      <section className="relative h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden mb-12">
+      <section className="relative h-[45vh] sm:h-[55vh] min-h-[360px] flex items-center justify-center overflow-hidden mb-8 sm:mb-12">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -29,26 +29,26 @@ export default function Destinations() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#08140c] via-black/60 to-black/75" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-forest-900/80 border border-forest-500/30 text-xs font-semibold uppercase tracking-widest text-forest-300 backdrop-blur-md mb-4">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-forest-900/80 border border-forest-500/30 text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-forest-300 backdrop-blur-md mb-3 sm:mb-4">
             <Compass className="w-3.5 h-3.5" />
             <span>Odisha Travel Catalog</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-cream-100 tracking-tight mb-4">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl font-bold text-cream-100 tracking-tight mb-3 sm:mb-4">
             Explore Destinations
           </h1>
 
-          <p className="text-base sm:text-lg text-cream-200/90 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-cream-200/90 font-light max-w-2xl mx-auto leading-relaxed">
             From the tiger-inhabited sal forests of Similipal to ancient Sun Temple chariot wheels and tranquil Bay of Bengal beaches.
           </p>
         </div>
       </section>
 
       {/* =========================================
-          CATEGORY FILTER TABS
+          CATEGORY FILTER TABS (Mobile Scrollable)
       ========================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center justify-center flex-wrap gap-2 sm:gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+        <div className="flex items-center sm:justify-center overflow-x-auto no-scrollbar py-1 gap-2 sm:gap-3 -mx-4 px-4 sm:mx-0 sm:px-0">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat.id;
             const count = cat.id === 'all' 
@@ -59,14 +59,14 @@ export default function Destinations() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-2 ${
+                className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-1.5 sm:gap-2 shrink-0 touch-manipulation active:scale-95 ${
                   isActive
-                    ? 'bg-gradient-to-r from-forest-500 to-forest-600 text-white shadow-lg shadow-forest-600/30 scale-105'
-                    : 'bg-forest-950/70 border border-forest-800/80 text-cream-200/70 hover:text-white hover:bg-forest-900/60'
+                    ? 'bg-gradient-to-r from-forest-500 to-forest-600 text-white shadow-lg shadow-forest-600/30'
+                    : 'bg-forest-950/80 border border-forest-800/80 text-cream-200/70 hover:text-white hover:bg-forest-900/60'
                 }`}
               >
                 <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                   isActive ? 'bg-white/20 text-white' : 'bg-forest-900 text-forest-300'
                 }`}>
                   {count}
@@ -83,7 +83,7 @@ export default function Destinations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
         >
           <AnimatePresence>
             {filteredDestinations.map((dest) => (
@@ -94,7 +94,7 @@ export default function Destinations() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="group relative rounded-3xl overflow-hidden aspect-[3/4] bg-forest-950 border border-forest-800/50 shadow-xl flex flex-col justify-end"
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/5] sm:aspect-[3/4] bg-forest-950 border border-forest-800/50 shadow-xl flex flex-col justify-end"
               >
                 {/* Large HD Photograph */}
                 <img
@@ -108,19 +108,19 @@ export default function Destinations() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:via-black/30 transition-colors" />
 
                 {/* Category Pill Badge (Top) */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-forest-950/80 backdrop-blur-md text-forest-300 border border-forest-700/50">
+                <div className="absolute top-3.5 left-3.5 right-3.5 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between z-10">
+                  <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-forest-950/85 backdrop-blur-md text-forest-300 border border-forest-700/50">
                     {dest.categoryLabel}
                   </span>
-                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] text-gold border border-white/10">
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] sm:text-[11px] text-gold border border-white/10">
                     <Star className="w-3 h-3 fill-gold text-gold" />
                     <span>{dest.rating}</span>
                   </div>
                 </div>
 
                 {/* Card Content & Action (Bottom) */}
-                <div className="relative z-10 p-5 sm:p-6 space-y-2">
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-cream-200 transition-colors leading-snug">
+                <div className="relative z-10 p-4 sm:p-6 space-y-1.5 sm:space-y-2">
+                  <h3 className="font-serif text-lg sm:text-2xl font-bold text-white group-hover:text-cream-200 transition-colors leading-snug">
                     {dest.name}
                   </h3>
 
@@ -130,10 +130,10 @@ export default function Destinations() {
                   </div>
 
                   {/* Explore More Button */}
-                  <div className="pt-3">
+                  <div className="pt-2 sm:pt-3">
                     <button
                       onClick={() => setActiveModalDest(dest)}
-                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-forest-800/80 hover:bg-forest-600 text-white font-medium text-xs uppercase tracking-wider border border-forest-600/40 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg"
+                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-forest-800/80 hover:bg-forest-600 text-white font-medium text-xs uppercase tracking-wider border border-forest-600/40 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg touch-manipulation active:scale-[0.98]"
                     >
                       <Eye className="w-3.5 h-3.5 text-forest-300" />
                       <span>Explore More</span>

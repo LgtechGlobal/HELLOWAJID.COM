@@ -53,4 +53,14 @@
     border-color: rgba(82, 183, 136, 0.4);
     box-shadow: 0 10px 30px -10px rgba(45, 106, 79, 0.3);
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 }
