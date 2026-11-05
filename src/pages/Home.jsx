@@ -1,0 +1,496 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { 
+  Compass, ArrowDown, MapPin, ArrowRight, ShieldCheck, 
+  Sparkles, Camera, Mountain, Trees, Waves, Eye, ChevronRight 
+} from 'lucide-react';
+import { DESTINATIONS } from '../data/destinations';
+import { GALLERY_ITEMS } from '../data/gallery';
+import DestinationModal from '../components/DestinationModal';
+
+export default function Home() {
+  const [selectedDestination, setSelectedDestination] = useState(null);
+
+  // Exact 10 featured destinations requested by prompt:
+  // Similipal, Barehipani, Joranda, Chilika, Puri Beach, Konark, Daringbadi, Deomali, Satkosia, Gopalpur
+  const featuredIds = [
+    'similipal-national-park',
+    'barehipani-waterfall',
+    'joranda-waterfall',
+    'chilika-lake',
+    'puri-beach',
+    'konark-sun-temple',
+    'daringbadi',
+    'deomali-hills',
+    'satkosia-tiger-reserve',
+    'gopalpur-beach'
+  ];
+
+  const featuredDestinations = featuredIds
+    .map((id) => DESTINATIONS.find((d) => d.id === id))
+    .filter(Boolean);
+
+  const previewGallery = GALLERY_ITEMS.slice(0, 6);
+
+  const whyChooseUs = [
+    {
+      title: 'Explore Hidden Places',
+      desc: 'Venture deep beyond regular tourist trails into untouched virgin waterfalls, secluded valleys, and pristine tribal frontiers.',
+      icon: Compass,
+      stat: '40+ Hidden Trails'
+    },
+    {
+      title: 'Comfortable Travel',
+      desc: 'Seamless air-conditioned 4x4 safaris, verified forest canopy cottages, and certified safety-first hospitality protocols.',
+      icon: ShieldCheck,
+      stat: '100% Verified Stays'
+    },
+    {
+      title: 'Local Travel Experiences',
+      desc: 'Authentic interactions guided by native Mayurbhanj naturalists and regional conservationists who know every tiger footprint.',
+      icon: Trees,
+      stat: 'Native Guides'
+    },
+    {
+      title: 'Memorable Adventures',
+      desc: 'From sunrise dolphin cruises in Chilika to mist treks atop Deomali and roaring waterfalls in Similipal that stay with you forever.',
+      icon: Sparkles,
+      stat: '99.4% Guest Delight'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#08140c] text-[#f7f4ee] overflow-x-hidden">
+      {/* =========================================
+          HERO SECTION (Cinematic Fullscreen)
+      ========================================= */}
+      <section className="relative h-screen min-h-[680px] w-full flex items-center justify-center overflow-hidden">
+        {/* Cinematic HD Background image of Similipal forest */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transform scale-105 motion-safe:animate-[pulse_14s_ease-in-out_infinite]"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=2160&q=85')`,
+          }}
+        />
+
+        {/* Cinematic Multi-layered Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08140c] via-black/55 to-black/75" />
+        <div className="absolute inset-0 bg-radial-at-c from-transparent via-[#08140c]/40 to-[#08140c]/90 pointer-events-none" />
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest-900/80 border border-forest-400/30 text-xs sm:text-sm font-semibold tracking-widest uppercase text-forest-300 backdrop-blur-md mb-6"
+          >
+            <Compass className="w-4 h-4 text-forest-400" />
+            <span>Similipal Biosphere & Pristine Odisha</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-cream-100 tracking-tight leading-[1.1] mb-6 drop-shadow-2xl"
+          >
+            Discover The <br />
+            <span className="italic font-normal bg-gradient-to-r from-cream-100 via-forest-200 to-forest-400 bg-clip-text text-transparent">
+              Untouched Beauty
+            </span>{' '}
+            of Odisha
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4 }}
+            className="text-base sm:text-xl md:text-2xl text-cream-200/90 font-light tracking-wide max-w-2xl mx-auto mb-10 drop-shadow"
+          >
+            Explore Nature. Experience Wildlife. Create Memories.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          >
+            <Link
+              to="/destinations"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-forest-500 via-forest-600 to-forest-700 hover:from-forest-400 hover:to-forest-600 text-white font-semibold text-sm tracking-wider uppercase shadow-xl hover:shadow-forest-500/30 transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <span>Explore Destinations</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              to="/packages"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-cream-100 border border-white/20 font-semibold text-sm tracking-wider uppercase backdrop-blur-md transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <span>View Packages</span>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Scroll Down Animation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-cream-300/60 z-10"
+        >
+          <span className="text-[10px] tracking-[0.25em] uppercase font-medium">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+            className="w-6 h-10 rounded-full border-2 border-cream-200/30 flex items-start justify-center p-1"
+          >
+            <motion.div className="w-1.5 h-2.5 bg-forest-400 rounded-full" />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* =========================================
+          SIMILIPAL SPOTLIGHT (Primary Destination)
+      ========================================= */}
+      <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-[#08140c] via-[#0b1c11] to-[#08140c]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left text spotlight */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/60 border border-forest-600/40 text-xs font-semibold uppercase tracking-widest text-forest-300">
+                <Trees className="w-3.5 h-3.5 text-forest-400" />
+                <span>Primary Destination</span>
+              </div>
+              
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-cream-100 leading-tight">
+                Similipal <br />
+                <span className="italic font-normal text-forest-300">National Park</span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-cream-200/80 leading-relaxed font-light">
+                Spanning over 2,750 square kilometers of virgin sal canopies in Mayurbhanj, Similipal is a designated UNESCO World Biosphere Reserve. It is the sacred sanctuary of Royal Bengal Tigers, rare melanistic (black) tigers, wild elephant herds, and cascading 399m waterfalls.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 py-2">
+                <div className="p-4 rounded-2xl bg-forest-950/70 border border-forest-800/60">
+                  <span className="block font-serif text-2xl font-bold text-forest-400">2,750+</span>
+                  <span className="text-xs text-cream-400/80 uppercase tracking-wider">Sq. Km Wilderness</span>
+                </div>
+                <div className="p-4 rounded-2xl bg-forest-950/70 border border-forest-800/60">
+                  <span className="block font-serif text-2xl font-bold text-forest-400">1,076+</span>
+                  <span className="text-xs text-cream-400/80 uppercase tracking-wider">Flora Species</span>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center gap-4">
+                <Link
+                  to="/destinations"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest-300 hover:text-white transition-colors group"
+                >
+                  <span>Explore Similipal Safaris</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <span className="text-forest-700">•</span>
+                <Link
+                  to="/packages"
+                  className="text-sm font-semibold text-cream-300/70 hover:text-white transition-colors"
+                >
+                  View 2D/3D Packages
+                </Link>
+              </div>
+            </div>
+
+            {/* Right photographic composition */}
+            <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-forest-800/50 shadow-2xl group">
+                  <img
+                    src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=85"
+                    alt="Royal Bengal Tiger Similipal"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-forest-300">Wildlife Sanctuary</span>
+                    <p className="text-sm font-serif font-semibold text-white">Royal Bengal Tiger Habitat</p>
+                  </div>
+                </div>
+
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-forest-800/50 shadow-2xl group">
+                  <img
+                    src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=85"
+                    alt="Joranda Falls Similipal"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-forest-300">Waterfalls</span>
+                    <p className="text-sm font-serif font-semibold text-white">Joranda Falls (181m)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4 pt-8">
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-forest-800/50 shadow-2xl group">
+                  <img
+                    src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=85"
+                    alt="Barehipani Waterfall"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-forest-300">Majestic Falls</span>
+                    <p className="text-sm font-serif font-semibold text-white">Barehipani Falls (399m)</p>
+                  </div>
+                </div>
+
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-forest-800/50 shadow-2xl group">
+                  <img
+                    src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=85"
+                    alt="Wild Asian Elephants Similipal"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-forest-300">Elephant Corridor</span>
+                    <p className="text-sm font-serif font-semibold text-white">Wild Asian Elephants</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+          FEATURED DESTINATIONS (Image-Heavy Cards)
+      ========================================= */}
+      <section className="py-20 lg:py-28 bg-[#08140c]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-950 border border-forest-800 text-xs font-semibold uppercase tracking-widest text-forest-400 mb-3">
+                <Compass className="w-3.5 h-3.5" />
+                <span>Featured Odisha Destinations</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-cream-100">
+                10 Iconic Landscapes
+              </h2>
+            </div>
+            <Link
+              to="/destinations"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-900/60 hover:bg-forest-800 border border-forest-700/50 text-xs font-semibold uppercase tracking-wider text-cream-100 transition-colors self-start md:self-auto"
+            >
+              <span>View All 18 Destinations</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Cards Grid: 10 Destinations */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {featuredDestinations.map((dest) => (
+              <motion.div
+                key={dest.id}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => setSelectedDestination(dest)}
+                className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer border border-forest-900/60 bg-forest-950 shadow-xl"
+              >
+                {/* Background Image */}
+                <img
+                  src={dest.image}
+                  alt={dest.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 group-hover:via-black/20 transition-colors" />
+
+                {/* Minimal Label Badge */}
+                <div className="absolute top-3.5 right-3.5">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-forest-300 border border-white/10">
+                    {dest.categoryLabel.split(' ')[0]}
+                  </span>
+                </div>
+
+                {/* Small Destination Name and Location Label */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-serif text-lg font-bold text-white group-hover:text-cream-200 transition-colors leading-tight">
+                    {dest.name}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-xs text-cream-300/80 mt-1">
+                    <MapPin className="w-3.5 h-3.5 text-forest-400 shrink-0" />
+                    <span className="truncate">{dest.location}</span>
+                  </div>
+                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] text-forest-400 font-medium">
+                    <span>Explore details</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          WHY CHOOSE US SECTION
+      ========================================= */}
+      <section className="py-20 lg:py-24 bg-gradient-to-b from-[#08140c] via-[#0b1c11] to-[#08140c] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs uppercase font-bold tracking-widest text-forest-400">
+              The Odia Wild Difference
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-cream-100 mt-2">
+              Why Explore With Us
+            </h2>
+            <p className="text-sm sm:text-base text-cream-300/70 font-light mt-3">
+              We operate low-impact, deep-nature expeditions that prioritize biodiversity conservation, local tribal heritage, and authentic exploration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChooseUs.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="glass-card p-6 sm:p-8 rounded-3xl relative overflow-hidden transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-forest-900/80 border border-forest-600/40 flex items-center justify-center text-forest-400 mb-5">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-forest-400 block mb-1">
+                    {item.stat}
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-cream-100 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cream-300/80 leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          LARGE PHOTOGRAPHY GALLERY PREVIEW
+      ========================================= */}
+      <section className="py-20 lg:py-24 bg-[#08140c]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-forest-400">
+                Visual Journey
+              </span>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-cream-100 mt-1">
+                Glimpses of Wild Odisha
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-900/60 hover:bg-forest-800 border border-forest-700/50 text-xs font-semibold uppercase tracking-wider text-cream-100 transition-colors self-start md:self-auto"
+            >
+              <Camera className="w-4 h-4 text-forest-400" />
+              <span>Open Fullscreen Gallery</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {previewGallery.map((img) => (
+              <Link
+                key={img.id}
+                to="/gallery"
+                className="group relative rounded-2xl overflow-hidden aspect-[4/3] border border-forest-900/60 bg-forest-950 shadow-lg block"
+              >
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3.5 left-3.5 right-3.5">
+                  <p className="text-[11px] font-semibold text-cream-100 truncate font-serif">
+                    {img.title}
+                  </p>
+                  <p className="text-[10px] text-forest-300 flex items-center gap-1 mt-0.5">
+                    <MapPin className="w-3 h-3" />
+                    <span className="truncate">{img.location}</span>
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          CALL TO ACTION BANNER
+      ========================================= */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto rounded-3xl relative overflow-hidden border border-forest-700/40 shadow-2xl">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=85')`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08140c] via-[#08140c]/85 to-black/70" />
+
+          <div className="relative z-10 p-8 sm:p-14 lg:p-20 max-w-2xl">
+            <span className="inline-block px-3 py-1 rounded-full bg-forest-800/80 border border-forest-500/30 text-xs font-semibold uppercase tracking-widest text-forest-200 mb-4">
+              Plan Your Journey Today
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-cream-100 mb-4 leading-tight">
+              Ready to witness India’s best kept secret?
+            </h2>
+            <p className="text-sm sm:text-base text-cream-200/80 font-light mb-8 leading-relaxed">
+              From guided safaris in Similipal National Park to serene sunrises over Chandrabhaga beach, let our native travel experts craft your bespoke Odisha adventure.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/packages"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-forest-500 to-forest-600 hover:from-forest-400 text-white font-semibold text-xs uppercase tracking-wider shadow-lg"
+              >
+                <span>Browse Tour Packages</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-cream-100 border border-white/20 font-semibold text-xs uppercase tracking-wider backdrop-blur-md"
+              >
+                <span>Contact Travel Desk</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Destination detail modal when clicking a card */}
+      <DestinationModal
+        destination={selectedDestination}
+        onClose={() => setSelectedDestination(null)}
+      />
+    </div>
+  );
+}
