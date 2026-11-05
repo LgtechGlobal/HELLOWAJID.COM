@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Compass, ArrowDown, MapPin, ArrowRight, ShieldCheck, 
-  Sparkles, Camera, Mountain, Trees, Waves, Eye, ChevronRight 
+  Sparkles, Camera, Mountain, Trees, Waves, Eye, ChevronRight,
+  Play, Pause, Volume2, VolumeX
 } from 'lucide-react';
 import { DESTINATIONS } from '../data/destinations';
 import { GALLERY_ITEMS } from '../data/gallery';
@@ -11,6 +12,28 @@ import DestinationModal from '../components/DestinationModal';
 
 export default function Home() {
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
+
+  const toggleVideoPlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   // Exact 10 featured destinations requested by prompt:
   // Similipal, Barehipani, Joranda, Chilika, Puri Beach, Konark, Daringbadi, Deomali, Satkosia, Gopalpur
@@ -63,20 +86,46 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#08140c] text-[#f7f4ee] overflow-x-hidden">
       {/* =========================================
-          HERO SECTION (Cinematic Fullscreen)
+          HERO SECTION (Cinematic Fullscreen Video Background)
       ========================================= */}
       <section className="relative h-screen min-h-[680px] w-full flex items-center justify-center overflow-hidden">
-        {/* Cinematic HD Background image of Similipal forest */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transform scale-105 motion-safe:animate-[pulse_14s_ease-in-out_infinite]"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=2160&q=85')`,
-          }}
-        />
+        {/* Fullscreen Video of Beautiful Nature & Wild Animal */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <video
+            ref={videoRef}
+            src="/videos/hero-wildlife.mp4"
+            poster="/images/hero/hero-similipal.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center scale-105"
+          />
+        </div>
 
         {/* Cinematic Multi-layered Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#08140c] via-black/55 to-black/75" />
         <div className="absolute inset-0 bg-radial-at-c from-transparent via-[#08140c]/40 to-[#08140c]/90 pointer-events-none" />
+
+        {/* Video Controls Pill */}
+        <div className="absolute top-24 right-4 sm:right-8 z-20 flex items-center gap-2">
+          <button
+            onClick={toggleVideoPlay}
+            className="p-2.5 rounded-full bg-black/40 hover:bg-forest-600/80 backdrop-blur-md text-white/90 border border-white/10 transition-colors shadow-lg"
+            aria-label={isVideoPlaying ? 'Pause nature video' : 'Play nature video'}
+            title={isVideoPlaying ? 'Pause video' : 'Play video'}
+          >
+            {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+          </button>
+          <button
+            onClick={toggleMute}
+            className="p-2.5 rounded-full bg-black/40 hover:bg-forest-600/80 backdrop-blur-md text-white/90 border border-white/10 transition-colors shadow-lg"
+            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            title={isMuted ? 'Unmute' : 'Mute'}
+          >
+            {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+          </button>
+        </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
@@ -205,12 +254,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right photographic composition */}
+            {/* Right photographic composition with local files */}
             <div className="lg:col-span-7 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-forest-800/50 shadow-2xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=85"
+                    src="/images/gallery/gallery-tiger.jpg"
                     alt="Royal Bengal Tiger Similipal"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -223,7 +272,7 @@ export default function Home() {
 
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-forest-800/50 shadow-2xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=85"
+                    src="/images/destinations/joranda.jpg"
                     alt="Joranda Falls Similipal"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -238,7 +287,7 @@ export default function Home() {
               <div className="space-y-4 pt-8">
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-forest-800/50 shadow-2xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=85"
+                    src="/images/destinations/barehipani.jpg"
                     alt="Barehipani Waterfall"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -251,7 +300,7 @@ export default function Home() {
 
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-forest-800/50 shadow-2xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=85"
+                    src="/images/gallery/gallery-elephant.jpg"
                     alt="Wild Asian Elephants Similipal"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -445,14 +494,14 @@ export default function Home() {
       </section>
 
       {/* =========================================
-          CALL TO ACTION BANNER
+          CALL TO ACTION BANNER (Local File)
       ========================================= */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto rounded-3xl relative overflow-hidden border border-forest-700/40 shadow-2xl">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=85')`,
+              backgroundImage: `url('/images/hero/cta-banner.jpg')`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#08140c] via-[#08140c]/85 to-black/70" />

@@ -6,12 +6,11 @@ export const DESTINATIONS = [
     category: 'wildlife',
     categoryLabel: 'Wildlife & Nature',
     location: 'Mayurbhanj, Odisha',
-    image: 'https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/similipal.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/similipal.jpg',
+      '/images/gallery/gallery-tiger.jpg',
+      '/images/gallery/gallery-elephant.jpg'
     ],
     tagline: 'Heartland of Royal Bengal Tigers & Dense Sal Canopies',
     description: 'Spanning over 2,750 sq km in Mayurbhanj, Similipal is a UNESCO World Network Biosphere Reserve, tiger reserve, and sanctuary of biodiversity with 1,076 plant species, majestic Asian elephants, and elusive melanistic tigers.',
@@ -27,10 +26,10 @@ export const DESTINATIONS = [
     category: 'wildlife',
     categoryLabel: 'Wildlife & Nature',
     location: 'Angul, Odisha',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/satkosia.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/satkosia.jpg',
+      '/images/gallery/gallery-satkosia.jpg'
     ],
     tagline: 'Where the Mahanadi River Cuts Through the Eastern Ghats',
     description: 'A 22 km long canyon cut by the emerald Mahanadi River, flanked by pristine deciduous forests home to gharials, muggers, tigers, and hornbills.',
@@ -46,10 +45,10 @@ export const DESTINATIONS = [
     category: 'wildlife',
     categoryLabel: 'Wildlife & Nature',
     location: 'Kendrapara, Odisha',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/bhitarkanika.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/bhitarkanika.jpg',
+      '/images/gallery/gallery-crocodile.jpg'
     ],
     tagline: 'India\'s Amazon – The Realm of Giant Saltwater Crocodiles',
     description: 'A rich mangrove ecosystem and Ramsar Wetland site harboring the world’s largest recorded saltwater crocodiles, kingfishers, and winter migratory birds.',
@@ -65,9 +64,9 @@ export const DESTINATIONS = [
     category: 'wildlife',
     categoryLabel: 'Wildlife & Nature',
     location: 'Sambalpur, Odisha',
-    image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/debrigarh.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/debrigarh.jpg'
     ],
     tagline: 'Lakeside Wilderness by the Mighty Hirakud Dam',
     description: 'Perched on the rim of the vast Hirakud reservoir, Debrigarh is renowned for frequent sightings of leopards, Indian bison (gaur), chousingha, and migratory waterfowl.',
@@ -85,13 +84,13 @@ export const DESTINATIONS = [
     category: 'waterfalls',
     categoryLabel: 'Waterfalls',
     location: 'Similipal, Mayurbhanj',
-    image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/barehipani.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/barehipani.jpg',
+      '/images/gallery/gallery-barehipani.jpg'
     ],
     tagline: 'India\'s 2nd Highest Waterfall Cascading 399 Meters',
-    description: 'A two-tiered tiered cascade nestled deep inside the Meghasani peak of Similipal National Park, where the Budhabalanga river leaps down sheer cliff walls into mist.',
+    description: 'A two-tiered cascade nestled deep inside the Meghasani peak of Similipal National Park, where the Budhabalanga river leaps down sheer cliff walls into mist.',
     highlights: ['399m (1,309 ft) two-tiered plunge', 'Panoramic viewpoints across the gorge', 'Similipal core sanctuary scenery'],
     bestTime: 'November to May',
     nearestHub: 'Baripada (85 km)',
@@ -104,10 +103,10 @@ export const DESTINATIONS = [
     category: 'waterfalls',
     categoryLabel: 'Waterfalls',
     location: 'Similipal, Mayurbhanj',
-    image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/joranda.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/joranda.jpg',
+      '/images/gallery/gallery-joranda.jpg'
     ],
     tagline: 'A Pristine 181-Meter Single Drop Through Ancient Woods',
     description: 'Plummeting unbroken off a vertical cliff face into an amphitheater surrounded by ancient sal timber, Joranda produces a perpetual thunderous symphony.',
@@ -123,9 +122,9 @@ export const DESTINATIONS = [
     category: 'waterfalls',
     categoryLabel: 'Waterfalls',
     location: 'Kendujhar (Keonjhar), Odisha',
-    image: 'https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/sanaghagara.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/sanaghagara.jpg'
     ],
     tagline: 'Picturesque Cascade Framed by Granite Formations',
     description: 'A peaceful, perennial waterfall flowing through rolling hilly terrain with dense forested slopes, ideal for family picnics and serene morning strolls.',
@@ -141,9 +140,10 @@ export const DESTINATIONS = [
     category: 'waterfalls',
     categoryLabel: 'Waterfalls',
     location: 'Sundergarh, Odisha',
-    image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/khandadhar.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/khandadhar.jpg',
+      '/images/gallery/gallery-khandadhar.jpg'
     ],
     tagline: 'The Shimmering Sword Waterfall of Northern Odisha',
     description: 'Tumbling 244 meters like the blade of a gleaming sword, Khandadhar is surrounded by tribal lore and emerald mountain ridges.',
@@ -161,10 +161,10 @@ export const DESTINATIONS = [
     category: 'beaches',
     categoryLabel: 'Beaches & Lakes',
     location: 'Puri, Odisha',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/puri-beach.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/puri-beach.jpg',
+      '/images/gallery/gallery-puri.jpg'
     ],
     tagline: 'Blue Flag Certified Golden Coast Along Bay of Bengal',
     description: 'Famed worldwide for its holy waves, glorious sunrises, vibrant beach craft, and eco-certified Blue Flag clean sands, Puri Beach is Odisha’s coastal jewel.',
@@ -180,9 +180,9 @@ export const DESTINATIONS = [
     category: 'beaches',
     categoryLabel: 'Beaches & Lakes',
     location: 'Konark, Odisha',
-    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/chandrabhaga.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/chandrabhaga.jpg'
     ],
     tagline: 'Serene Marine Shoreline of the Ancient Sun Temple',
     description: 'Just 3 km from the Sun Temple, Chandrabhaga offers uninterrupted stretches of pristine golden sands, whispering casuarina groves, and clean surf.',
@@ -198,9 +198,10 @@ export const DESTINATIONS = [
     category: 'beaches',
     categoryLabel: 'Beaches & Lakes',
     location: 'Ganjam, Odisha',
-    image: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/gopalpur.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/gopalpur.jpg',
+      '/images/gallery/gallery-gopalpur.jpg'
     ],
     tagline: 'Historic Port Town with Vintage Lighthouse & Peaceful Waves',
     description: 'An erstwhile maritime trading hub with colonial ruins, gentle surfing waves, a towering vintage lighthouse, and tranquil seaside charm.',
@@ -216,10 +217,10 @@ export const DESTINATIONS = [
     category: 'beaches',
     categoryLabel: 'Beaches & Lakes',
     location: 'Puri & Ganjam, Odisha',
-    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/chilika.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/chilika.jpg',
+      '/images/gallery/gallery-chilika.jpg'
     ],
     tagline: 'Asia\'s Largest Brackish Water Lagoon & Irrawaddy Dolphin Haven',
     description: 'Over 1,100 sq km of glittering water dotted with islands like Kalijai, Nalabana bird sanctuary, and home to the endangered, smiling Irrawaddy dolphins.',
@@ -237,10 +238,10 @@ export const DESTINATIONS = [
     category: 'hills',
     categoryLabel: 'Hills & Adventure',
     location: 'Koraput, Odisha',
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/deomali.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/deomali.jpg',
+      '/images/gallery/gallery-deomali.jpg'
     ],
     tagline: 'Odisha\'s Highest Peak at 1,672 Meters Above Sea Level',
     description: 'Rising grandly amidst the Eastern Ghats near Semiliguda, Deomali features undulating green meadows, misty ridges, thrilling aero-sports, and breathtaking sunrises.',
@@ -256,9 +257,10 @@ export const DESTINATIONS = [
     category: 'hills',
     categoryLabel: 'Hills & Adventure',
     location: 'Kandhamal, Odisha',
-    image: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/daringbadi.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/daringbadi.jpg',
+      '/images/gallery/gallery-daringbadi.jpg'
     ],
     tagline: 'The Kashmir of Odisha – Pine Forests & Misty Valleys',
     description: 'A picturesque hill station at 3,000 feet known for its rolling pine forests, aromatic coffee plantations, cascading hill springs, and winter frosts.',
@@ -274,9 +276,9 @@ export const DESTINATIONS = [
     category: 'hills',
     categoryLabel: 'Hills & Adventure',
     location: 'Gajapati, Odisha',
-    image: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/mahendragiri.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/mahendragiri.jpg'
     ],
     tagline: 'Mythological Mountain Peak of Parashurama & Pandavas',
     description: 'At 1,501 meters, Mahendragiri is steeped in the Ramayana and Mahabharata epics, adorned with monolithic stone temples and rare sub-tropical biodiversity.',
@@ -294,10 +296,10 @@ export const DESTINATIONS = [
     category: 'culture',
     categoryLabel: 'Culture & Heritage',
     location: 'Konark, Puri District',
-    image: 'https://images.unsplash.com/photo-1600100397608-f010f443b794?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/konark.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600100397608-f010f443b794?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85'
+      '/images/destinations/konark.jpg',
+      '/images/gallery/gallery-konark.jpg'
     ],
     tagline: 'UNESCO World Heritage Architectural Wonder of the 13th Century',
     description: 'Conceived as the celestial chariot of Surya the Sun God with 24 carved stone wheels pulled by seven horses, Konark is an unparalleled masterpiece of Kalinga architecture.',
@@ -313,9 +315,10 @@ export const DESTINATIONS = [
     category: 'culture',
     categoryLabel: 'Culture & Heritage',
     location: 'Puri, Odisha',
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/jagannath.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/jagannath.jpg',
+      '/images/gallery/gallery-jagannath.jpg'
     ],
     tagline: 'Sacred Dhama of Lord Jagannath & The Great Ratha Yatra',
     description: 'One of the Char Dham pilgrimage sites, dating back to the 12th century, housing Lord Jagannath, Balabhadra, and Subhadra with timeless culinary and devotional traditions.',
@@ -331,9 +334,10 @@ export const DESTINATIONS = [
     category: 'culture',
     categoryLabel: 'Culture & Heritage',
     location: 'Bhubaneswar, Odisha',
-    image: 'https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/udayagiri.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1590076215667-875d4ef2d7ee?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/udayagiri.jpg',
+      '/images/gallery/gallery-udayagiri.jpg'
     ],
     tagline: 'Rock-Cut Monastic Caverns of Emperor Kharavela (2nd Century BCE)',
     description: '33 rock-hewn caves carved into two adjacent hills serving as monastic residences for Jain monks, featuring the famous Brahmi Hathigumpha inscription.',
@@ -349,9 +353,9 @@ export const DESTINATIONS = [
     category: 'culture',
     categoryLabel: 'Culture & Heritage',
     location: 'Dhauli, Bhubaneswar',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/dhauli.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1600&q=85'
+      '/images/destinations/dhauli.jpg'
     ],
     tagline: 'Monument of Peace Where Emperor Ashoka Embraced Buddhism',
     description: 'Overlooking the Daya River where the historic Kalinga War ended, this gleaming white Peace Pagoda stands alongside Ashokan rock edicts from 261 BCE.',

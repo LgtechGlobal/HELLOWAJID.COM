@@ -7,22 +7,22 @@ export default function About() {
   const experiences = [
     {
       title: 'Pristine Nature',
-      image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1000&q=85',
+      image: '/images/destinations/joranda.jpg',
       desc: 'Cascading waterfalls, untouched sal woodlands, and virgin hills untouched by commercial over-tourism.'
     },
     {
       title: 'Untamed Wildlife',
-      image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=85',
+      image: '/images/gallery/gallery-tiger.jpg',
       desc: 'Royal Bengal tigers, Asian wild elephants, Irrawaddy dolphins, and world-record saltwater crocodiles.'
     },
     {
       title: 'Golden Beaches',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85',
+      image: '/images/destinations/puri-beach.jpg',
       desc: 'Blue Flag certified golden shorelines along the Bay of Bengal, serene casuarina groves, and sacred surf.'
     },
     {
       title: 'Living Heritage',
-      image: 'https://images.unsplash.com/photo-1600100397608-f010f443b794?auto=format&fit=crop&w=1000&q=85',
+      image: '/images/destinations/konark.jpg',
       desc: 'Thirteenth-century architectural masterworks at Konark, rock edicts of Ashoka, and timeless temples.'
     }
   ];
@@ -37,7 +37,7 @@ export default function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2160&q=85')`,
+            backgroundImage: `url('/images/hero/about-banner.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#08140c] via-black/60 to-black/75" />
@@ -124,7 +124,7 @@ export default function About() {
               <div className="space-y-4">
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4] border border-forest-800/50">
                   <img
-                    src="https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=800&q=85"
+                    src="/images/destinations/similipal.jpg"
                     alt="Similipal Core Canopy"
                     className="w-full h-full object-cover"
                   />
@@ -135,7 +135,7 @@ export default function About() {
                 </div>
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-forest-800/50">
                   <img
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=85"
+                    src="/images/destinations/bhitarkanika.jpg"
                     alt="Similipal Wildlife"
                     className="w-full h-full object-cover"
                   />
@@ -149,7 +149,7 @@ export default function About() {
               <div className="space-y-4 pt-6">
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-forest-800/50">
                   <img
-                    src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=85"
+                    src="/images/destinations/barehipani.jpg"
                     alt="Barehipani 399m"
                     className="w-full h-full object-cover"
                   />
@@ -160,7 +160,7 @@ export default function About() {
                 </div>
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4] border border-forest-800/50">
                   <img
-                    src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=85"
+                    src="/images/gallery/gallery-tiger.jpg"
                     alt="Similipal Tiger Reserve"
                     className="w-full h-full object-cover"
                   />

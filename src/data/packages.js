@@ -6,7 +6,7 @@ export const PACKAGES = [
     badge: 'Popular Weekend Trip',
     price: '₹7,499',
     perPerson: 'per person',
-    image: 'https://images.unsplash.com/photo-1544979590-37e9b47eb705?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/similipal.jpg',
     description: 'An exhilarating introduction to Similipal National Park. Experience dense sal forests, Barehipani twin falls, and guided wildlife jeep safari.',
     highlights: [
       'Core forest 4x4 open gypsy safari',
@@ -27,7 +27,7 @@ export const PACKAGES = [
     badge: 'Best Wildlife Safari',
     price: '₹12,999',
     perPerson: 'per person',
-    image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/gallery/gallery-tiger.jpg',
     description: 'The definitive deep-forest expedition covering Similipal’s core trails, tiger territory, orchid sanctuaries, and remote waterfalls.',
     highlights: [
       'Two full-day 4x4 jungle tracking drives',
@@ -49,7 +49,7 @@ export const PACKAGES = [
     badge: 'Lakes, Hills & Wildlife',
     price: '₹21,500',
     perPerson: 'per person',
-    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/chilika.jpg',
     description: 'A harmonious blend of Similipal tiger reserve, Asia\'s largest brackish lagoon Chilika with dolphins, and the rolling green hills of Daringbadi.',
     highlights: [
       'Similipal tiger safari & waterfalls',
@@ -73,7 +73,7 @@ export const PACKAGES = [
     badge: 'Signature Grand Expedition',
     price: '₹34,999',
     perPerson: 'per person',
-    image: 'https://images.unsplash.com/photo-1600100397608-f010f443b794?auto=format&fit=crop&w=1600&q=85',
+    image: '/images/destinations/konark.jpg',
     description: 'The ultimate panoramic odyssey spanning Similipal’s deep wilderness, UNESCO Konark Sun Temple, sacred Puri shores, and the majestic Deomali mountain peaks.',
     highlights: [
       'Comprehensive Odisha Grand Tour covering Forest, Sea, Hills & Heritage',
